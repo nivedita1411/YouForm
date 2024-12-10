@@ -1,9 +1,9 @@
-import Response from "../models/responseModel";
+import Response from "../models/responseModel.js";
 
 // Controller Functions
 
 // Create a Response
-const createResponse = async (req, res) => {
+export const createResponse = async (req, res) => {
   try {
     const { form, data } = req.body;
 
@@ -19,7 +19,7 @@ const createResponse = async (req, res) => {
 };
 
 // Get All Responses
-const getAllResponses = async (req, res) => {
+export const getAllResponses = async (req, res) => {
   try {
     const responses = await Response.find().populate("form");
     res.status(200).json(responses);
@@ -30,7 +30,7 @@ const getAllResponses = async (req, res) => {
 };
 
 // Get Responses by Form
-const getResponsesByForm = async (req, res) => {
+export const getResponsesByForm = async (req, res) => {
   const { formId } = req.params;
 
   try {
@@ -48,7 +48,7 @@ const getResponsesByForm = async (req, res) => {
 };
 
 // Get a Single Response by ID
-const getResponseById = async (req, res) => {
+export const getResponseById = async (req, res) => {
   const { id } = req.params;
 
   try {
@@ -66,7 +66,7 @@ const getResponseById = async (req, res) => {
 };
 
 // Update a Response
-const updateResponse = async (req, res) => {
+export const updateResponse = async (req, res) => {
   const { id } = req.params;
   const updates = req.body;
 
@@ -85,7 +85,7 @@ const updateResponse = async (req, res) => {
 };
 
 // Delete a Response
-const deleteResponse = async (req, res) => {
+export const deleteResponse = async (req, res) => {
   const { id } = req.params;
 
   try {
@@ -103,12 +103,4 @@ const deleteResponse = async (req, res) => {
 };
 
 // Export the model and controllers
-module.exports = {
-  Response,
-  createResponse,
-  getAllResponses,
-  getResponsesByForm,
-  getResponseById,
-  updateResponse,
-  deleteResponse,
-};
+
