@@ -6,6 +6,7 @@ import cors from 'cors'
 
 import userRoutes from "./routes/userRoutes.js"
 import formRoutes from "./routes/formRoutes.js"
+import responseRoutes from './routes/responseRoutes.js'
 
 dotenv.config();
 
@@ -24,6 +25,7 @@ app.use(cookieParser());
 
 app.use(userRoutes);
 app.use(formRoutes);
+app.use(responseRoutes);
 
 mongoose.connect(process.env.MONGO_URI)
 .then(()=>{

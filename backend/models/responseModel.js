@@ -1,7 +1,8 @@
-const responseSchema = new Schema({
-    form: { type: Schema.Types.ObjectId, ref: 'Form', required: true },
-    data: { type: Map, of: String },
-    submittedAt: { type: Date, default: Date.now },
-  });
+import mongoose from "mongoose";
 
-module.exports = mongoose.model("Response", responseSchema);
+const responseSchema = new mongoose.Schema({
+    form: { type: mongoose.Schema.Types.ObjectId, ref: 'Form', required: true },
+    data: { type: Map, of: String },
+    submittedAt: { type: Date, default: Date.now },
+});
+export default mongoose.model("Response", responseSchema);
